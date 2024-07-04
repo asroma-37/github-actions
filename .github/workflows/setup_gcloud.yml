@@ -21,5 +21,8 @@ jobs:
         project_id: ${{ secrets.GCP_PROJECT_ID }}
         service_account_key: ${{ secrets.GCP_SA_KEY }}
 
+    - name: Make setup script executable
+      run: chmod +x ./setup_gcloud.sh    
+
     - name: Run setup script
       run: ./setup_gcloud.sh ${{ secrets.GCP_PROJECT_ID }}
