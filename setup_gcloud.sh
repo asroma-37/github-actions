@@ -9,6 +9,11 @@ if [ -z "$PROJECT_ID" ]; then
   exit 1
 fi
 
+# Authenticate with GCP
+echo $GOOGLE_APPLICATION_CREDENTIALS | base64 --decode > /tmp/account.json
+gcloud auth activate-service-account --key-file=/tmp/account.json
+gcloud config set project $PROJECT_ID
+
 # Define the bucket name
 BUCKET_NAME="${PROJECT_ID}-tf-state"
 
