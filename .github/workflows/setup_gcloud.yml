@@ -5,6 +5,10 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      project_id:
+        description: 'Google Cloud Project ID'
+        required: true
 
 jobs:
   setup-gcloud:
